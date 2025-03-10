@@ -7,13 +7,23 @@
 </head>
 <body>
     <h1 style="text-align: center;">Never Gonna Give You Up</h1>
+    
     <script>
-        let audio = new Audio("https://www.myinstants.com/media/sounds/rickroll.mp3");
+        let audio = new Audio("rickroll.mp3"); // Путь к локальному файлу
+
         audio.play().catch(() => {
-            let btn = document.createElement("button");
-            btn.innerText = "▶ Нажми для звука";
-            btn.onclick = () => audio.play();
-            document.body.appendChild(btn);
+            console.warn("Локальный файл не найден, пробую онлайн версию...");
+
+            // Если локального файла нет, пробуем онлайн ссылку
+            audio = new Audio("https://www.myinstants.com/media/sounds/rickroll-music.mp3");
+
+            audio.play().catch(() => {
+                // Если браузер блокирует автозапуск, добавляем кнопку
+                let btn = document.createElement("button");
+                btn.innerText = "▶ Нажми для звука";
+                btn.onclick = () => audio.play();
+                document.body.appendChild(btn);
+            });
         });
     </script>
 </body>
