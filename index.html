@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rickroll</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Never Gonna Give You Up</h1>
+    <script>
+        let audio = new Audio("https://www.myinstants.com/media/sounds/rickroll.mp3");
+        audio.play().catch(() => {
+            let btn = document.createElement("button");
+            btn.innerText = "▶ Нажми для звука";
+            btn.onclick = () => audio.play();
+            document.body.appendChild(btn);
+        });
+    </script>
+</body>
+</html>
